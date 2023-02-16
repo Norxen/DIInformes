@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.16.0-48579d909b7943b64690c65c71e07e0b80981928  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report3" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="80d5c5fe-3418-43ed-9cf9-3bbf2bb59ac2">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     comentarios.`TEXTO` AS comentarios_TEXTO,
+     comentarios.`PARTICIPANTE` AS comentarios_PARTICIPANTE,
+     participantes.`NOMBRE` AS participantes_NOMBRE,
+     participantes.`USERNAME` AS participantes_USERNAME,
+     participantes.`PASSWORD` AS participantes_PASSWORD,
+     participantes.`DETALLES` AS participantes_DETALLES
+FROM
+     `participantes` participantes INNER JOIN `comentarios` comentarios ON participantes.`ID` = comentarios.`PARTICIPANTE`]]>
+	</queryString>
+	<field name="comentarios_TEXTO" class="java.lang.String"/>
+	<field name="comentarios_PARTICIPANTE" class="java.lang.Long"/>
+	<field name="participantes_NOMBRE" class="java.lang.String"/>
+	<field name="participantes_USERNAME" class="java.lang.String"/>
+	<field name="participantes_PASSWORD" class="java.lang.String"/>
+	<field name="participantes_DETALLES" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="91" y="15" width="379" height="49" forecolor="#FF0000" uuid="9a9ee61a-30bd-42b7-ad03-62e8b6b6f2af"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Black" size="24"/>
+				</textElement>
+				<text><![CDATA[Comentarios y Usuarios]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="24" splitType="Stretch">
+			<staticText>
+				<reportElement x="70" y="2" width="118" height="20" uuid="f1bf2e7d-259a-4061-8fca-60ea0a486215"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre del Participante]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="226" y="2" width="129" height="20" uuid="c5902f38-e791-4b44-bd9c-0f1c42411831"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Detalles del Participante]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="399" y="2" width="100" height="20" uuid="3f6eaab1-6df2-42e3-98fd-5b95a4db44fd"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[comentarios_TEXTO]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<textField>
+				<reportElement x="70" y="0" width="118" height="20" uuid="660879ef-fe68-486b-b0f7-e8ed23f76fbf"/>
+				<textFieldExpression><![CDATA[$F{participantes_NOMBRE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="226" y="0" width="100" height="20" uuid="548577c2-e7ae-44a3-99f7-a1ea4db6eedd"/>
+				<textFieldExpression><![CDATA[$F{participantes_DETALLES}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="399" y="0" width="100" height="20" uuid="86fc2b96-d608-4f12-aff9-460337c4f1b8"/>
+				<textFieldExpression><![CDATA[$F{comentarios_TEXTO}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

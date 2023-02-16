@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.16.0-48579d909b7943b64690c65c71e07e0b80981928  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report2_subreport1" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="7d2b90bf-9a64-4f61-9f76-66e351765162">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="participante_ID" class="java.lang.Long">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     comentarios.`ID` AS comentarios_ID,
+     comentarios.`TEXTO` AS comentarios_TEXTO,
+     comentarios.`PARTICIPANTE` AS comentarios_PARTICIPANTE
+FROM
+     `comentarios` comentarios
+WHERE
+     comentarios.`PARTICIPANTE`=$P{participante_ID}]]>
+	</queryString>
+	<field name="comentarios_ID" class="java.lang.Long"/>
+	<field name="comentarios_TEXTO" class="java.lang.String"/>
+	<field name="comentarios_PARTICIPANTE" class="java.lang.Long"/>
+	<variable name="variable1" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="55" splitType="Stretch">
+			<textField>
+				<reportElement x="132" y="18" width="289" height="20" uuid="25550ed9-23d9-49e4-b7c3-556dc9f816ab"/>
+				<textFieldExpression><![CDATA["Comentarios del participante " + $P{participante_ID}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="21" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="9f39da6c-a2bf-43ff-97dd-08937a8d2230"/>
+				<text><![CDATA[comentarios_ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="105" y="0" width="100" height="20" uuid="66c3f3fa-59c0-44f0-904a-ea092228236b"/>
+				<text><![CDATA[comentarios_TEXTO]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="9ea2cb54-e48a-4fa8-a5d1-8b7ad2c43982"/>
+				<textFieldExpression><![CDATA[$F{comentarios_ID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="105" y="0" width="100" height="20" uuid="3c9c5229-d016-48b1-ad6b-890e8274c0a2"/>
+				<textFieldExpression><![CDATA[$F{comentarios_TEXTO}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

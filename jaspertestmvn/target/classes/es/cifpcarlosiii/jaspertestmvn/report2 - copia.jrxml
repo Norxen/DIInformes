@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.16.0-48579d909b7943b64690c65c71e07e0b80981928  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f2a6bf3b-3f54-4d33-a31e-c530a6ac0ea3">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["./es/cifpcarlosiii/jaspertestmvn/"]]></defaultValueExpression>
+	</parameter>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     participantes.`ID` AS participantes_ID,
+     participantes.`NOMBRE` AS participantes_NOMBRE,
+     participantes.`USERNAME` AS participantes_USERNAME,
+     participantes.`PASSWORD` AS participantes_PASSWORD,
+     participantes.`DETALLES` AS participantes_DETALLES
+FROM
+     `participantes` participantes]]>
+	</queryString>
+	<field name="participantes_ID" class="java.lang.Long"/>
+	<field name="participantes_NOMBRE" class="java.lang.String"/>
+	<field name="participantes_USERNAME" class="java.lang.String"/>
+	<field name="participantes_PASSWORD" class="java.lang.String"/>
+	<field name="participantes_DETALLES" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="37bb6c79-1b87-4356-8b49-77f36b0fe0e9"/>
+				<text><![CDATA[participantes_ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="105" y="0" width="100" height="20" uuid="495f0ad2-4bf6-44b6-9bd6-49864455d508"/>
+				<text><![CDATA[participantes_NOMBRE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="210" y="0" width="100" height="20" uuid="d538b2bb-ef00-4470-858f-98626204a2a8"/>
+				<text><![CDATA[participantes_USERNAME]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="315" y="0" width="100" height="20" uuid="53311f30-615d-43f1-875c-732b7f726d67"/>
+				<text><![CDATA[participantes_PASSWORD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="415" y="0" width="100" height="20" uuid="88e4a137-99fc-419a-9e80-ce323bab7e43"/>
+				<text><![CDATA[participantes_DETALLES]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="315" y="2" width="100" height="20" uuid="a70808cb-9d62-4dbf-b860-56f8ce267bd3"/>
+				<textFieldExpression><![CDATA[$F{participantes_PASSWORD}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="2" width="100" height="20" uuid="29f3e36c-0f3d-485c-8146-933d6b73b909"/>
+				<textFieldExpression><![CDATA[$F{participantes_ID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="105" y="2" width="100" height="20" uuid="80e5e2eb-133c-45f4-b937-f53838daa35b"/>
+				<textFieldExpression><![CDATA[$F{participantes_NOMBRE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="210" y="2" width="100" height="20" uuid="f9711ce6-e542-447d-b63f-ee5afb06028a"/>
+				<textFieldExpression><![CDATA[$F{participantes_USERNAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="415" y="2" width="100" height="20" uuid="6c638d6d-5465-4507-89f6-677f8c6b596b"/>
+				<textFieldExpression><![CDATA[$F{participantes_DETALLES}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement x="0" y="22" width="515" height="103" uuid="b8464ae7-eedf-4d10-b26f-1e9886decbf0"/>
+				<subreportParameter name="participante_ID">
+					<subreportParameterExpression><![CDATA[$F{participantes_ID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "report2_subreport1.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
