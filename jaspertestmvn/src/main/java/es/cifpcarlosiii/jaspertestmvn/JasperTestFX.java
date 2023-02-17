@@ -96,11 +96,11 @@ public class JasperTestFX extends Application {
         // el cobo coge el valor que has elegido (informe) o (sublistado)
         if (combo.getValue().equals("informe")) {
 
-            JasperTestLoader.REPORT_JXML = "informe.jrxml";
+            JasperTestLoader.reportJXML = "informe.jrxml";
 
         } else {
 
-            JasperTestLoader.REPORT_JXML = "sublistado.jrxml";
+            JasperTestLoader.reportJXML = "sublistadoV2.jrxml";
         }
 
         startLoadTask();
